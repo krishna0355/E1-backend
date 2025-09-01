@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, Float, DateTime, Enum, Boolean, 
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from enum import Enum as PyEnum
-from .db import Base
+from db import Base
 
 
 # -------------------------
