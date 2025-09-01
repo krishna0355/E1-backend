@@ -10,7 +10,7 @@ import csv
 from flask import Flask, request, jsonify, send_file, Response
 from flask_cors import CORS
 
-from .db import db_session, engine, Base
+from db import db_session, engine, Base
 from .models import Task, Station, TaskStatus, Order
 from .allocator import allocate_work, offer_first_tasks, distribute_even_load
 
