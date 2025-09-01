@@ -11,8 +11,8 @@ from flask import Flask, request, jsonify, send_file, Response
 from flask_cors import CORS
 
 from db import db_session, engine, Base
-from .models import Task, Station, TaskStatus, Order
-from .allocator import allocate_work, offer_first_tasks, distribute_even_load
+from models import Task, Station, TaskStatus, Order
+from allocator import allocate_work, offer_first_tasks, distribute_even_load
 
 app = Flask(__name__)
 CORS(app)  # allow http://localhost:5173 to call the API in dev
@@ -267,7 +267,7 @@ def sm_remove(code: str):
 
 @app.post("/admin/ensure-offers")
 def ensure_offers():
-    from .db import SessionLocal
+    from db import SessionLocal
     try:
         db = SessionLocal()
         res = allocate_work(db)   # ensures offers + assignment
